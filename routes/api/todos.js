@@ -1,14 +1,12 @@
 import express from 'express';
+import * as todosControllers from '../../controllers/todos.js';
 
 const todosRouter = express.Router();
 
-todosRouter.get('/', (req, res) => {
-  res.status(200).send('<h1>Recuperati tutti i promemoria</h1>');
-});
+todosRouter.get('/', todosControllers.getAllTodos);
 
-todosRouter.get('/:id', (req, res) => {
-  const { id } = req.params;
-  res.status(200).send(`<h1>Recuperato il promemoria con id = ${id}</h1>`);
-});
+todosRouter.get('/:id', todosControllers.getOneTodo);
+
+todosRouter.post('/', todosControllers.createTodo);
 
 export { todosRouter };
