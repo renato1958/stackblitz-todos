@@ -8,7 +8,7 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api/users', todosRouter);
+app.use('/api/todos', todosRouter);
 
 const port = process.env.PORT || 3000;
 
