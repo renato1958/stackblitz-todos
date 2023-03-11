@@ -14,6 +14,6 @@ app.get('/', (req, res) => {
   res.send("<h1>Ciao, sono Arturo, il server che ce l'ha duro!</h1>");
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server in ascolto sulla porta ${port}`);
 });
