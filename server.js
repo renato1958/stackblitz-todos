@@ -1,19 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import logger from 'morgan';
+import { todosRouter } from './routes/api/todos.js';
 
 const app = express();
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/api/users', todosRouter);
 
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.send("<h1>Ciao, sono Arturo, il server che ce l'ha duro!</h1>");
-});
-
-app.listen(port, '0.0.0.0', () => {
+app.listen(port, () => {
   console.log(`Server in ascolto sulla porta ${port}`);
 });
